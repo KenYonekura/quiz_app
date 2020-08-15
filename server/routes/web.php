@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('quizzes', 'QuizController');
+//リソースしない場合
+Route::get('/quizzes', 'QuizController@index');
+Route::get('/quizzes/create', 'QuizController@create');
+Route::post('/quizzes/form', 'QuizController@form');
+Route::get('/quizzes/{id}', 'QuizController@question');
+Route::get('/quizzes/{id}', 'QuizController@question_ans');
+// Route::delete('/quiz/delete','QuizController@destroy');
