@@ -7,9 +7,17 @@ use Illuminate\Http\Request;
 
 class QuizController extends Controller
 {
-    //showページへ移動
+    //indexページへ移動
     public function index()
     {
         return view('index'); //blade.phpは省略可能
+    }
+    public function create()
+    {
+        return view('create');
+    }
+    public function store(Request $request)
+    {
+        //
     }
 }
