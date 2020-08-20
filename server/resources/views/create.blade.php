@@ -20,45 +20,46 @@
         <p>問題をまた作成する場合は｢Again｣,問題を解く場合は｢End｣を押してください</p>
         <div class="question-form">
             <form method="POST" class="form" action="/quizzes" enctype="multipart/form-data">
-                <label for=" mondai">問題文:</label>
-                <textarea name="mondai" rows="5" cols="150" value="{{ old('title') }}"></textarea>
-                <div>
-                    <label for="choice1"></label>
-                    選択肢1：<input type="text" name="choice1" value="{{ old('q1') }}" size="40">
-                </div>
-                <div>
-                    <label for="choice2"></label>
-                    選択肢2：<input type="text" name="choice2" value="{{ old('q2') }}" size="40">
-                </div>
-                <div>
-                    <label for="choice3"></label>
-                    選択肢3：<input type="text" name="choice3" value="{{ old('q3') }}" size="40">
-                </div>
-                <div>
-                    <label for="Choice4"></label>
-                    選択肢4：<input type="text" name="choice4" value="{{ old('q4') }}" size="40">
-                </div>
-                <div>
-                    <label for="choice-pic1"></label>
-                    選択肢画像1：<input type="file" name="image" value="{{ old('pic1') }}">
-                </div>
-                <div>
-                    <label for="choice-pic2"></label>
-                    選択肢画像2：<input type="file" name="image" value="{{ old('pic2') }}">
-                </div>
-                <div>
-                    <label for="choice-pic3"></label>
-                    選択肢画像3：<input type="file" name="image" value="{{ old('pic3') }}">
-                </div>
-                <div>
-                    <label for="choicep-pic4"></label>
-                    選択肢画像4：<input type="file" name="image" value="{{ old('pic4') }}">
-                </div>
-                <div class="button">
-                    <input id="send_button" type="submit" value="Again" action="start.html" style="background-color: #F7DA0C"><!-- submitで入力された全てのデータを引き連れて<form>で指定したページへ飛ぶためのボタン -->
-                    <input id="send_button" type="submit" value="End" action="quiz.php" style="background-color: #F7DA0C">
-                </div>
-            </form>
+                @csrf
+                    <label for=" mondai">問題文:</label>
+                    <textarea name="title" rows="5" cols="150" value="{{ old('title') }}"></textarea>
+                    <div>
+                        <label for="choice1"></label>
+                        選択肢1：<input type="text" name="q1" value="{{ old('q1') }}" size="40">
+                    </div>
+                    <div>
+                        <label for="choice2"></label>
+                        選択肢2：<input type="text" name="q2" value="{{ old('q2') }}" size="40">
+                    </div>
+                    <div>
+                        <label for="choice3"></label>
+                        選択肢3：<input type="text" name="q3" value="{{ old('q3') }}" size="40">
+                    </div>
+                    <div>
+                        <label for="Choice4"></label>
+                        選択肢4：<input type="text" name="q4" value="{{ old('q4') }}" size="40">
+                    </div>
+                    <div>
+                        <label for="choice-pic1"></label>
+                        選択肢画像1：<input type="file" name="pic1" value="{{ old('pic1') }}">
+                    </div>
+                    <div>
+                        <label for="choice-pic2"></label>
+                        選択肢画像2：<input type="file" name="pic2" value="{{ old('pic2') }}">
+                    </div>
+                    <div>
+                        <label for="choice-pic3"></label>
+                        選択肢画像3：<input type="file" name="pic3" value="{{ old('pic3') }}">
+                    </div>
+                    <div>
+                        <label for="choicep-pic4"></label>
+                        選択肢画像4：<input type="file" name="pic4" value="{{ old('pic4') }}">
+                    </div>
+                    <div class="button">
+                        <input id="send_button" type="submit" value="Again" name="again" style="background-color: #F7DA0C"><!-- submitで入力された全てのデータを引き連れて<form>で指定したページへ飛ぶためのボタン -->
+                        <input id="send_button" type="submit" value="End" action="end" style="background-color: #F7DA0C">
+                    </div>
+                </form>
         </div>
     </div>
 </body>

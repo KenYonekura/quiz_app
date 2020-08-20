@@ -19,8 +19,8 @@
             必ずいずれかの選択肢を選んでください｡
         </div>
         <div class="start-button">
-            <a href="{{ action('QuizController@create', $post->id) }}">{{ $post->title }}</a>
-            <img src="/storage/image/inv.png" alt="logo">
+            <a href="/quizzes/create">
+                <img src="/storage/image/inv.png" name="start" alt="logo">
             </a>
         </div>
     </div>
